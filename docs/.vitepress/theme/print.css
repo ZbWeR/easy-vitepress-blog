@@ -1,0 +1,49 @@
+/* 打印设置 */
+
+/* 隐藏顶部导航，侧边栏，尾部 */
+.VPDocFooter,
+.VPNav,
+.VPLocalNav,
+.VPDocAside,
+.VPSidebar {
+  @apply print:hidden !important;
+}
+
+/* 二级标题分割页面 */
+.vp-doc h2 {
+  @apply print:break-before-page;
+}
+
+/* 调整边距 */
+.vp-doc h3 {
+  @apply print:mt-4;
+}
+.vp-doc p {
+  @apply print:my-1;
+}
+
+/* 强制显示背景色 */
+.vp-doc {
+  print-color-adjust: exact;
+  @apply print:leading-normal print:text-sm;
+}
+
+/* 自定义组件 */
+.vp-doc .link-card,
+.vp-doc .custom-block {
+  @apply print:my-2 print:break-inside-avoid;
+}
+
+/* 代码换行 */
+.vp-adaptive-theme .vp-code-dark code,
+.vp-adaptive-theme .vp-code-light code {
+  @apply print:w-auto print:whitespace-pre-wrap;
+}
+
+/* 边距设置 */
+@page {
+  margin: 1cm 0cm;
+}
+@page :first {
+  margin-top: 0;
+}

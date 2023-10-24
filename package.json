@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "tailwindcss": "^3.3.3",
+    "vitepress": "^1.0.0-rc.12"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "dependencies": {
+    "dayjs": "^1.11.9",
+    "gray-matter": "^4.0.3"
+  }
+}

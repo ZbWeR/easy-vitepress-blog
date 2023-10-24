@@ -1,0 +1,144 @@
+/* 调整文档内容页面样式 */
+
+/* 基础文字颜色，边框颜色，背景颜色 */
+:root {
+  --dora-text-indigo: #3a5ccc;
+  --dora-text-indigo-plus: #3451b2;
+  --dora-border-indigo: #3e63dd;
+  --dora-bg-indigo: #f0f4ff;
+}
+.dark {
+  --dora-text-indigo: #99a2ff;
+  --dora-text-indigo-plus: #dddffe;
+  --dora-border-indigo: #99a2ff;
+  --dora-bg-indigo: #1a2242;
+}
+
+/* 文章背景 */
+.VPContent.has-sidebar {
+  background-position: 50%;
+  background-size: 20px 20px;
+  background-image: linear-gradient(90deg, rgba(60, 10, 30, 0.04) 3%, transparent 0),
+    linear-gradient(1turn, rgba(60, 10, 30, 0.04) 3%, transparent 0);
+}
+
+/* 标题 */
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.vp-doc h5,
+.vp-doc h6 {
+  color: var(--dora-text-indigo);
+  letter-spacing: 0.1em;
+  @apply line-clamp-1;
+}
+
+.vp-doc h1 {
+  padding-bottom: 0.5rem;
+  border-bottom: 4px solid var(--dora-border-indigo);
+  width: fit-content;
+  @apply transition-all duration-300;
+}
+.vp-doc h1:hover {
+  padding-right: 1.75rem;
+}
+
+.vp-doc h2 {
+  margin-top: 10px;
+  border-bottom: 3px solid var(--dora-border-indigo);
+  width: fit-content;
+  padding-bottom: 4px;
+  border-top: 0px solid var(--dora-border-indigo);
+}
+
+/* 引用 */
+.vp-doc blockquote {
+  margin: 2em 0;
+  padding: 24px 32px;
+  background: var(--dora-bg-indigo);
+  border-left: 2px solid var(--dora-border-indigo);
+  position: relative;
+}
+
+.vp-doc blockquote::before {
+  content: "❝";
+  top: 8px;
+  left: 8px;
+  color: var(--dora-text-indigo-plus);
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 700;
+  position: absolute;
+  opacity: 0.7;
+}
+
+.vp-doc blockquote::after {
+  content: "❞";
+  font-size: 30px;
+  position: absolute;
+  right: 8px;
+  bottom: 0;
+  color: var(--dora-text-indigo-plus);
+  opacity: 0.7;
+}
+
+.vp-doc blockquote > p {
+  color: var(--dora-text-indigo-plus);
+}
+
+/* 列表 */
+.vp-doc li::marker {
+  color: var(--dora-text-indigo);
+}
+
+/* 表格 */
+.vp-doc table {
+  display: inline-block !important;
+  font-size: 12px;
+  width: auto;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.vp-doc thead {
+  background: var(--dora-bg-indigo);
+  color: var(--dora-text-indigo);
+  text-align: left;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: var(--dora-bg-indigo);
+}
+
+.vp-doc th {
+  color: var(--dora-text-indigo);
+  background: var(--dora-bg-indigo);
+}
+
+.vp-doc th,
+.vp-doc td {
+  padding: 12px 7px;
+  line-height: 24px;
+}
+
+.vp-doc td {
+  min-width: 120px;
+}
+
+/* 侧边导航 */
+.VPDocAsideOutline .outline-marker {
+  @apply w-1;
+}
+.VPDocAsideOutline .content .root li .active {
+  color: var(--dora-text-indigo);
+}
+
+/* 底部导航按钮 */
+.VPDocFooter .prev-next .pager-link {
+  @apply bg-zinc-50/70 dark:bg-zinc-900;
+}
+
+.vp-doc hr {
+  border-color: var(--dora-border-indigo);
+}
