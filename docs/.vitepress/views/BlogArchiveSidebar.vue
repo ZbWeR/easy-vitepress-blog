@@ -59,7 +59,7 @@
 
 <script setup lang="ts">
 import { onMounted, reactive } from "vue";
-import { type Category } from "../utils/article.data.js";
+import { type Category } from "../utils/types.js";
 import { useRouter } from "vitepress";
 
 const router = useRouter();

@@ -22,7 +22,10 @@
     <!-- 主体 -->
     <ul class="grid grid-cols-1 pt-6 lg:gap-6 lg:grid-cols-3">
       <!-- 所有文章 -->
-      <div :class="categories ? 'col-span-2' : 'col-span-3'" class="order-2 lg:order-1">
+      <div
+        :class="categories ? 'col-span-2' : 'col-span-3'"
+        class="order-2 pt-6 mt-6 border-t-2 sm:pt-0 sm:mt-0 sm:border-0 border-sky-400 lg:order-1 lg:mt-0"
+      >
         <PostCard
           v-for="(post, index) of posts"
           :key="post.date.time"

@@ -1,5 +1,5 @@
 <template>
-  <span class="p-1 rounded-sm" :class="colorClass" :style="colorStyle()">
+  <span class="px-1 rounded-sm" :class="colorClass" :style="colorStyle()">
     <slot></slot>
   </span>
 </template>

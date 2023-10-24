@@ -14,7 +14,11 @@
     <div class="p-4 pb-6">
       <div class="flex items-center justify-between">
         <h1 class="text-lg font-bold">{{ title }}</h1>
-        <p class="text-[12px] px-2 rounded-full py-0.5" :class="littleBadgeColor">
+        <p
+          v-if="tag"
+          class="text-[12px] px-2 rounded-full py-0.5"
+          :class="littleBadgeColor"
+        >
           {{ tag }}
         </p>
       </div>

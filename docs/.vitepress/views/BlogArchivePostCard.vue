@@ -35,7 +35,8 @@
 </template>
 
 <script setup lang="ts">
-import { type Post } from "../utils/article.data.js";
+import { type Post } from "../utils/types.js";
+import { fileName2Title } from "../userConfig/translations.js";
 import { useRouter } from "vitepress";
 
 const router = useRouter();
@@ -48,9 +49,10 @@ const getTitle = (post: Post): string => {
 
   const { url } = post;
   const matches = url.match(/.*\/(.*.html)/);
-
+  let fileName = matches && matches[1].replace(".html", "");
   // 如果匹配成功，返回匹配的部分作为标题，否则返回一个默认标题
-  return matches ? matches[1].replace(".html", "") : "Error Title";
+  if (fileName) return fileName2Title[fileName] || fileName;
+  return "Error Title";
 };
 
 // 获取文章的前两个tag
