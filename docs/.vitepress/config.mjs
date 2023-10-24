@@ -12,7 +12,9 @@ export default defineConfig({
   // 网站描述，有利于被搜索引擎捕获
   description:
     "zbwer's tech blog: An undergraduate's journey through frontend development, sharing insights, tips, and experiences in web technologies.",
+
   // md 文件根目录
+  // 【谨慎修改】：一旦修改将引起较多变动
   srcDir: "./src",
 
   // 主题自定义
@@ -33,16 +35,16 @@ export default defineConfig({
       message: "Released under the MIT License.",
       copyright: "Copyright © 2023-present zbwer",
     },
-    // 是否启动搜索功能
-    search: {
-      provider: "local",
-    },
     // 【文章页面左侧导航】
     sidebar: {
       "/Notes/": getSidebar("/docs/src", "/Notes/"),
     },
     // 文章内导航栏标题
     outlineTitle: "导航栏",
+    // 是否启动搜索功能
+    search: {
+      provider: "local",
+    },
   },
   // !请勿修改
   vite: {
