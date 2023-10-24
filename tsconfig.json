@@ -1,11 +1,18 @@
 {
-  "include": ["./docs/.vitepress/utils/*.ts", "./docs/.vitepress/components/*.vue"],
+  "include": [
+    "./docs/.vitepress/utils/*.ts",
+    "./docs/.vitepress/userConfig/*.ts",
+    "./docs/.vitepress/components/*.vue",
+    "./docs/.vitepress/views/*.vue"
+  ],
   "compilerOptions": {
     "module": "NodeNext",
     "allowJs": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["node"],
+    "outDir": "./docs/.vitepress/dist"
   }
 }
