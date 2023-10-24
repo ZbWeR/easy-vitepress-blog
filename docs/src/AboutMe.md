@@ -10,4 +10,4 @@ aside: false
 
 放一张**格温小姐**丰富页面！
 
-![](/public/hi.jpg)
+![](/hi.jpg)
