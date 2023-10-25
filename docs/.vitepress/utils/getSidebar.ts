@@ -67,7 +67,7 @@ function generate(notesRootPath: string, pagePath: string, prefix = "", depth = 
 
       // 处理 index 文件
       if (fileName === INDEX_FILE) {
-        sidebarSection = { ...itemData, ...sidebarSection };
+        sidebarSection = { ...sidebarSection, ...itemData };
       } else {
         sidebarSection.items!.push({
           ...itemData,

@@ -33,5 +33,4 @@ const colorStyle = () => {
     .map(([k, v]) => `${k}:${v}`)
     .join("; ");
 };
-// console.log(colorStyle)
 </script>
