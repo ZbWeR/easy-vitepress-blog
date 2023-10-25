@@ -2,7 +2,7 @@
 title: "🚀 快速上手"
 outline: deep
 desc: "十分钟快速搭建漂亮的个人博客！"
-tags: "Tutorial/Start"
+tags: "Tutorial"
 updateTime: "2023-10-24 14:53"
 ---
 

@@ -2,7 +2,7 @@
 title: "🎨 配置参考"
 outline: deep
 desc: "个性化配置指南，让你拥有一个定制化的，漂漂亮亮的博客网站！"
-tags: "Tutorial/Setting"
+tags: "Tutorial"
 updateTime: "2023-10-25 00:21"
 ---
 
@@ -46,7 +46,7 @@ export default defineConfig({
 
 主题配置信息位于 `themeConfig` 字段中，示例代码如下：
 
-```js{4}
+```js:line-numbers {4}
 export default defineConfig({
   // ... 省略其他配置
   head: [["link", { rel: "icon", href: "/logo.svg" }]],
@@ -62,7 +62,7 @@ export default defineConfig({
 - `logo`: 定义网站左上角展示的 logo
 - `nav`: 设定顶部导航栏的跳转链接，具体代码示例如下：
 
-```js
+```js:line-numbers
 export default defineConfig({
   // ...
   themeConfig: {
@@ -79,7 +79,7 @@ export default defineConfig({
 
 - `socialLinks`: 设定顶部导航栏左侧的社交平台跳转，具体代码示例如下：
 
-```js
+```js:line-numbers
 export default defineConfig({
   // ...
   themeConfig: {
@@ -93,7 +93,7 @@ export default defineConfig({
 - `outlineTitle`: 设定文章内容页面右侧目录的标题
 - `sidebar`: 设定文章页面左侧标题，具体代码示例如下：
 
-```js
+```js:line-numbers
 export default defineConfig({
   // ...
   themeConfig: {
@@ -139,7 +139,7 @@ export const fileName2Title: Record<string, string> = {
 
 ::: code-group
 
-```yaml [字段说明]
+```yaml:line-numbers [字段说明]
 # 所有字段均为字符串类型，请使用【引号】包裹
 hero:
   title: 超级大的标题
@@ -153,7 +153,7 @@ types:
 flow: 是否开启瀑布流布局
 ```
 
-```yaml [示例代码]
+```yaml:line-numbers [示例代码]
 hero:
   title: "Blogs"
   subTitle: "总要有个写东西的地方..."

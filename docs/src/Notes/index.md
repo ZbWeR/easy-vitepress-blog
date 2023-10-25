@@ -9,15 +9,12 @@ hero:
 types:
   - name: "使用指南"
     desc: "How to Use"
-    link: "/Notes/0tutorial/"
+    link: "/Notes/0tutorial/quickstart"
     icon: "✨"
   - name: "面经分享"
     desc: "interview experiences"
     link: "/Notes/Interviews/"
     icon: "🏃"
-  - name: "学习笔记"
-    desc: "front-end technologies"
-    link: "/Notes/Learning/"
 # flow: true
 ---
 
