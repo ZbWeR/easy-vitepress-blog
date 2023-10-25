@@ -4,8 +4,8 @@ import { getSidebar } from "./utils/getSidebar";
 
 export default defineConfig({
   // 标签上显示的网站标题
-  title: "zbwer's Blog",
-  titleTemplate: "zbwer",
+  title: "Easy VitePress Blog",
+  titleTemplate: "Blog",
   // 在标签上显示所的 logo
   head: [["link", { rel: "icon", href: "/logo.svg" }]],
 
@@ -32,7 +32,6 @@ export default defineConfig({
     socialLinks: [{ icon: "github", link: "https://github.com/ZbWeR" }],
     // 首页底部版权声明
     footer: {
-      message: "Released under the MIT License.",
       copyright: "Copyright © 2023-present zbwer",
     },
     // 【文章页面左侧导航】
@@ -55,6 +54,10 @@ export default defineConfig({
           replacement: fileURLToPath(
             new URL("./components/UpdateTime.vue", import.meta.url)
           ),
+        },
+        {
+          find: /^.*\/VPFooter\.vue$/,
+          replacement: fileURLToPath(new URL("./components/Footer.vue", import.meta.url)),
         },
       ],
     },
