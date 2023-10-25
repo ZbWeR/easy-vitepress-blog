@@ -1,6 +1,8 @@
 ---
 title: "🎨 配置参考"
 outline: deep
+desc: "个性化配置指南，让你拥有一个定制化的，漂漂亮亮的博客网站！"
+tags: "Tutorial/Setting"
 updateTime: "2023-10-25 00:21"
 ---
 
@@ -32,7 +34,7 @@ export default defineConfig({
 ```
 
 - `description`: 对于网站的描述，将用于 SEO 优化，可理解为更容易被搜索引擎捕获
-- `srcDir`: 设置 md 文件根目录，在本项目中请<HText type='warn'>谨慎修改</HText>
+- `srcDir`: 设置 Markdown 文件根目录，在本项目中请<HText type='warn'>谨慎修改</HText>
 
 ### 主题配置
 
@@ -194,6 +196,37 @@ types:
     icon: "✨"
 ```
 
+:::
+
+## 文章详情
+
+为了丰富归档页面的内容信息，本项目在 markdown 文件头部引入了更多的字段。
+
+你可以在任意 Markdown 文件头部插入这些字段，例如：
+
+::: code-group
+
+```md [example.md]
+---
+title: "🎨 配置参考"
+desc: "本文将介绍如何进行博客项目的个性化配置，包括如何修改"
+tags: "Tutorial/Setting"
+updateTime: "2023-10-25 00:21"
+---
+
+此处编写你的 Markdown 正文
+```
+
+:::
+以下是字段说明：
+
+- `title`: 文章的标题。文章默认的标题通常是 Markdown 的文件名称，有时你可能希望它具有一个别名。例如，你可能偏好文件命名不包含中文，但希望渲染在网页上为中文。
+- `desc`: 文章的摘要。
+- `tags`: 文章标签。用 `/` 隔开多个标签，最终只会渲染前两个标签。请注意该选项暂无实际作用，仅出于美观考虑。
+- `updateTime`: 文章的发布或更新日期。**强烈建议**在所有 Markdown 文件中填写该字段。它决定了你的 Markdown 文件在侧边栏中的顺序以及在归档页面的顺序。
+
+::: tip
+如果你使用的是 VSCode，那么你可以使用 【`Insert Date String`】 这个插件来快速生成 `updateTime` 字段。该插件的默认快捷键是 `ctrl`+`alt`+`i`.
 :::
 
 ## 更多信息
