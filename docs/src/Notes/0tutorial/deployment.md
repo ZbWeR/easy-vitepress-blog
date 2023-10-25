@@ -3,7 +3,7 @@ title: "🐳 部署相关"
 outline: deep
 desc: "想要将你的博客项目顺利部署并上线吗？想要让他人能够通过特定的域名访问你的网站吗？那就来尝试使用强大的 Vercel 部署服务吧！"
 tags: "Tutorial"
-updateTime: "2023-10-25 09:38"
+updateTime: "2023-10-24 09:38"
 ---
 
 # 部署指南

@@ -11,7 +11,7 @@ export function formatDate(raw: string | undefined): Post["date"] {
       string: "",
     };
   const date = new Date(raw);
-  date.setHours(12);
+  // date.setHours(12);
   return {
     time: +date,
     string: date.toLocaleDateString("en-US", {
