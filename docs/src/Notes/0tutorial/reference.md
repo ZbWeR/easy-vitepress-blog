@@ -14,6 +14,12 @@ updateTime: "2023-10-25 00:21"
 2. 设置首页中的 logo、标题、副标题等
 3. 设置归档页中的标题、描述等
 
+:::warning 遇见错误
+
+配置过程中遇见错误，极有可能是路由出错，例如 `link` 字段，请仔细检查
+
+:::
+
 ## 网站
 
 该部分配置文件位于 **`/docs/.vitepress/config.mjs`**
@@ -38,7 +44,7 @@ export default defineConfig({
 
 ### 主题配置
 
-主题配置位于 `themeConfig` 字段中，示例代码如下：
+主题配置信息位于 `themeConfig` 字段中，示例代码如下：
 
 ```js{4}
 export default defineConfig({
@@ -53,7 +59,7 @@ export default defineConfig({
 
 以下为主题配置选项：
 
-- `logo`: 网站左定义网站左上角展示的 logo
+- `logo`: 定义网站左上角展示的 logo
 - `nav`: 设定顶部导航栏的跳转链接，具体代码示例如下：
 
 ```js
@@ -93,6 +99,7 @@ export default defineConfig({
   themeConfig: {
     // ...
     sidebar: {
+      // 注意开头结尾均为反斜杠
       // Notes 页面下的侧边栏，你可以为不同页面添加不同的侧边栏（此功能仍在测试中）
       "/Notes/": getSidebar("/docs/src", "/Notes/"),
     },
@@ -100,11 +107,104 @@ export default defineConfig({
 });
 ```
 
+**注意**:
+
+sidebar 中默认使用的是目录或文件名称。例如，如果你的目录名为 `0tutorial`，那么它在侧边栏中将会显示为 `0tutorial`。你可以在 `/docs/.vitepress/userConfig/translations.ts` 中为其设置别名。例如:
+
+```js
+export const fileName2Title: Record<string, string> = {
+  "0tutorial": "🔥 使用指南",
+};
+```
+
+随后它将表现为 `🔥 使用指南`。请注意，侧边栏的排序是按照字典序进行的，你可以通过设置别名的方式来调整排序。
+
 ## 首页
 
 配置文件位于 **`/docs/src/index.md`**。您可以参考**本文末尾**的原生文档链接以获取详细的配置信息。
 
 另外，如果您希望对标题渐变色、Logo 背景光晕以及按钮颜色进行修改，可以在 `/docs/.vitepress/theme/var.css` 中进行。请注意，这可能需要您具有一定的 CSS 知识。
+
+## 归档
+
+这是本项目在 Vitepress 基础上新增的页面，用于汇总展示所有的文章信息。
+
+::: warning
+🚧 很抱歉目前只能展示 `/docs/src/Notes` 目录下的所有文章信息
+:::
+
+该部分配置文件位于 `/docs/src/Notes/index.md`
+
+以下是字段说明 & 示例代码：
+
+::: code-group
+
+```yaml [字段说明]
+# 所有字段均为字符串类型，请使用【引号】包裹
+hero:
+  title: 超级大的标题
+  subTitle: 小一点的标题
+# 页面右侧的分类，【数组类型】不要缺少前缀符号 -
+types:
+  - name: 类别名称
+    desc: 简单介绍
+    link: 跳转链接
+    icon: 右侧小图标
+flow: 是否开启瀑布流布局
+```
+
+```yaml [示例代码]
+hero:
+  title: "Blogs"
+  subTitle: "总要有个写东西的地方..."
+
+types:
+  - name: "面经分享"
+    desc: "interview experiences"
+    link: "/Notes/Interviews/"
+    icon: "🏃"
+  - name: "学习笔记"
+    desc: "front-end technologies"
+    link: "/Notes/Learning/"
+  - name: "随想杂文"
+    desc: "personal musings"
+    link: "/Notes/Thoughts/"
+    icon: "✨"
+flow: true
+```
+
+:::
+
+## 文章详情
+
+为了丰富归档页面的内容信息，本项目在 markdown 文件头部引入了更多的字段。
+
+你可以在任意 Markdown 文件头部插入这些字段，例如：
+
+::: code-group
+
+```md [example.md]
+---
+title: "🎨 配置参考"
+desc: "本文将介绍如何进行博客项目的个性化配置，包括如何修改"
+tags: "Tutorial/Setting"
+updateTime: "2023-10-25 00:21"
+---
+
+此处编写你的 Markdown 正文
+```
+
+:::
+以下是字段说明：
+
+- `title`: 文章的标题。文章默认的标题通常是 Markdown 的文件名称，有时你可能希望它具有一个别名。例如，你可能偏好文件命名不包含中文，但希望渲染在网页上为中文。
+- `desc`: 文章的摘要。
+- `tags`: 文章标签。用 `/` 隔开多个标签，最终只会渲染前两个标签。请注意该选项暂无实际作用，仅出于美观考虑。
+- `updateTime`: 文章的发布或更新日期。**强烈建议**在所有 Markdown 文件中填写该字段。它决定了你的 Markdown 文件在侧边栏中的顺序以及在归档页面的顺序。
+
+::: tip
+如果你使用的是 VSCode，那么你可以使用 【`Insert Date String`】 这个插件来快速生成 `updateTime` 字段。该插件的默认快捷键是 `ctrl`+`alt`+`i`.
+:::
 
 ## 友链
 
@@ -147,87 +247,6 @@ export default defineConfig({
   // 项目开源仓库链接
   link: string;
 ```
-
-## 归档
-
-这是本项目在 Vitepress 基础上新增的页面，用于汇总展示所有的文章信息。
-
-::: warning
-🚧 很抱歉目前只能展示 `/docs/src/Notes` 目录下的所有文章信息
-:::
-
-该部分配置文件位于 `/docs/src/Notes/index.md`
-
-以下是字段说明 & 示例代码：
-
-::: code-group
-
-```yaml [字段说明]
-# 所有字段均为字符串类型，请使用【引号】包裹
-hero:
-  title: 超级大的标题
-  desc: 小一点的标题
-  subTitle: 小一点的标题
-# 页面右侧的分类，【数组类型】不要缺少前缀符号 -
-types:
-  - name: 类别名称
-    desc: 简单介绍
-    link: 跳转链接
-    icon: 右侧小图标
-```
-
-```yaml [示例代码]
-hero:
-  title: "🐳 Blog Posts"
-  desc: "总要有个写东西的地方..."
-  subTitle: "Learning notes, frontend wisdom & interview experiences from a dedicated web enthusiast."
-
-types:
-  - name: "面经分享"
-    desc: "interview experiences"
-    link: "/Notes/Interviews/"
-    icon: "🏃"
-  - name: "学习笔记"
-    desc: "front-end technologies"
-    link: "/Notes/Learning/"
-  - name: "随想杂文"
-    desc: "personal musings"
-    link: "/Notes/Thoughts/"
-    icon: "✨"
-```
-
-:::
-
-## 文章详情
-
-为了丰富归档页面的内容信息，本项目在 markdown 文件头部引入了更多的字段。
-
-你可以在任意 Markdown 文件头部插入这些字段，例如：
-
-::: code-group
-
-```md [example.md]
----
-title: "🎨 配置参考"
-desc: "本文将介绍如何进行博客项目的个性化配置，包括如何修改"
-tags: "Tutorial/Setting"
-updateTime: "2023-10-25 00:21"
----
-
-此处编写你的 Markdown 正文
-```
-
-:::
-以下是字段说明：
-
-- `title`: 文章的标题。文章默认的标题通常是 Markdown 的文件名称，有时你可能希望它具有一个别名。例如，你可能偏好文件命名不包含中文，但希望渲染在网页上为中文。
-- `desc`: 文章的摘要。
-- `tags`: 文章标签。用 `/` 隔开多个标签，最终只会渲染前两个标签。请注意该选项暂无实际作用，仅出于美观考虑。
-- `updateTime`: 文章的发布或更新日期。**强烈建议**在所有 Markdown 文件中填写该字段。它决定了你的 Markdown 文件在侧边栏中的顺序以及在归档页面的顺序。
-
-::: tip
-如果你使用的是 VSCode，那么你可以使用 【`Insert Date String`】 这个插件来快速生成 `updateTime` 字段。该插件的默认快捷键是 `ctrl`+`alt`+`i`.
-:::
 
 ## 更多信息
 

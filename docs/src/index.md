@@ -11,11 +11,11 @@ hero:
     alt: VitePress
   actions:
     - theme: brand
-      text: Welcome To My Docs
-      link: /Notes/index
+      text: Get Start
+      link: /Notes/0tutorial/quickstart
     - theme: alt
-      text: About me
-      link: /AboutMe
+      text: View Document
+      link: /Notes/
 
 features:
   - icon: 📝
