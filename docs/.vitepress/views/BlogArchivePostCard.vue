@@ -1,26 +1,29 @@
 <template>
   <div
     @click="openLink(post.url)"
-    class="relative flex items-center gap-4 p-4 mt-4 transition-all bg-white border border-transparent rounded-lg shadow-md cursor-pointer sm:pl-0 dark:bg-slate-800/80 first:mt-0 dark:hover:bg-sky-950/80 hover:scale-[0.98] dark:hover:scale-100 dark:hover:border-sky-300"
+    class="relative py-4 mt-6 transition-all border rounded-lg cursor-pointer dark:border-transparent hover:border-indigo-800 break-inside-avoid-column bg-zinc-50/50 sm:pl-0 dark:bg-slate-800/80 first:mt-0 dark:hover:bg-sky-950/80 dark:hover:border-sky-300"
   >
-    <p
+    <!-- <p
       class="hidden pl-4 font-mono text-4xl sm:block text-sky-400/50 dark:text-slate-200/50"
     >
       {{ index < 10 ? "0" + index : index }}
-    </p>
-    <div class="w-full">
+    </p> -->
+    <div class="w-full px-5">
       <p class="text-sm text-zinc-400">{{ post.date.string }}</p>
-      <h1 class="my-2 text-2xl font-bold leading-8 tracking-tight">
+      <h1
+        :class="flow ? '' : 'lg:text-2xl'"
+        class="my-2 text-xl font-bold leading-8 tracking-tight"
+      >
         {{ getTitle(post) }}
       </h1>
       <p
-        class="flex-1 mt-2 transition-all duration-300 text-black/60 dark:text-slate-500 dark:group-hover:text-white/80 group-hover:text-black"
+        class="flex-1 mt-2 leading-relaxed transition-all duration-300 text-black/60 dark:text-slate-500 dark:group-hover:text-white/80 group-hover:text-black"
       >
         {{ post.frontmatter.desc }}
       </p>
 
       <!-- tags -->
-      <div class="flex justify-end w-full mt-2">
+      <div class="flex justify-end w-full mt-3">
         <p
           v-for="(tag, tagIndex) in getTags(post)"
           :key="tagIndex"
@@ -40,7 +43,7 @@ import { fileName2Title } from "../userConfig/translations.js";
 import { useRouter } from "vitepress";
 
 const router = useRouter();
-const { post, index } = defineProps(["post", "index"]);
+const { post, flow } = defineProps(["post", "flow"]);
 
 // 获取文章标题信息，使用用户自定义的标题或是 md 文件名称
 const getTitle = (post: Post): string => {
