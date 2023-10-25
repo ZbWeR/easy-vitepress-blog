@@ -24,7 +24,7 @@
       <!-- 所有文章 -->
       <div
         :class="categories ? 'col-span-2' : 'col-span-3'"
-        class="order-2 pt-6 mt-6 border-t-2 sm:pt-0 sm:mt-0 sm:border-0 border-sky-400 lg:order-1 lg:mt-0"
+        class="order-2 pt-6 mt-6 border-t-2 lg:pt-0 lg:border-0 border-sky-400 lg:order-1 lg:mt-0"
       >
         <PostCard
           v-for="(post, index) of posts"

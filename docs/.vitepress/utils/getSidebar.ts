@@ -78,7 +78,6 @@ function generate(notesRootPath: string, pagePath: string, prefix = "", depth = 
   }
 
   sidebarSection.items!.sort((a, b) => {
-    console.log(a.updateTime, b.updateTime);
     const { time: av } = formatDate(a.updateTime);
     const { time: bv } = formatDate(b.updateTime);
     return av - bv;
