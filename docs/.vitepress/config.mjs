@@ -45,6 +45,10 @@ export default defineConfig({
       provider: "local",
     },
   },
+  // 数学公式支持
+  markdown: {
+    math: true,
+  },
   // !请勿修改
   vite: {
     resolve: {

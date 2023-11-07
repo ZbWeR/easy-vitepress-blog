@@ -283,3 +283,28 @@ export default config;
 <HText type="warn">嗨 Hi 你好鸭！</HText>
 <HText type="info">嗨 Hi 你好鸭！</HText>
 <HText color="#fff" bg="#5672cd">嗨 Hi 你好鸭！</HText>
+
+## 数学公式
+
+### 行内公式
+
+**输入：**
+
+```md
+这是一个行内公式: $\frac{1}{a+b}$
+```
+
+**输出：**
+
+这是一个行内公式: $\frac{1}{a+b}$
+
+### 公式块
+
+**输入：**
+
+```md
+$$ \Sigma^i a_i=0 $$
+```
+
+**输出：**
+$$ \Sigma^i_N a_i=0 $$
