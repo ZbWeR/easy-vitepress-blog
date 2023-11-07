@@ -9,9 +9,8 @@
   @apply print:hidden !important;
 }
 
-/* 二级标题分割页面 */
-.vp-doc h2 {
-  @apply print:break-before-page;
+.Layout > footer {
+  @apply print:hidden !important;
 }
 
 /* 调整边距 */
