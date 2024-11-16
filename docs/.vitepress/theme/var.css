@@ -38,3 +38,47 @@
 .VPSidebar::-webkit-scrollbar {
   @apply hidden;
 }
+
+/* 主页标题设置, 采用自定义的图片 */
+.main .name {
+  background-image: url("/title.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 出于 seo 考虑, 保留原始文字但是将其隐藏 */
+.main .name .clip {
+  visibility: hidden;
+}
+
+/* 移动端适配: 居中显示 */
+@media (min-width: 960px) {
+  .main .name {
+    background-position: initial;
+  }
+}
+
+/* 链接美化 */
+.vp-doc a {
+  @apply hover:text-blue-500 after:hover:opacity-100 dark:hover:text-blue-400;
+}
+
+/* 图片预览 */
+.medium-zoom-overlay {
+  background-color: var(--vp-c-bg) !important;
+  z-index: 100;
+}
+
+.medium-zoom-overlay ~ img {
+  z-index: 101;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  opacity: 0.9 !important;
+}
+
+/* VPTeam页面调整margin */
+.VPTeamPage {
+  margin: 0 !important;
+}
